@@ -117,14 +117,14 @@
         <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> target === <span class="hljs-string">"boolean"</span>) {
             deep = target; target = <span class="hljs-built_in">arguments</span>[ i ] || {}; i++;
         }
-        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> target !== <span class="hljs-string">"object"</span> &amp;&amp; !(<span class="hljs-built_in">Object</span>.prototype.toString.call( target ) === <span class="hljs-string">'[object Function]'</span>)) {
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> target !== <span class="hljs-string">"object"</span> &amp;&amp; <span class="hljs-built_in">Object</span>.prototype.toString.call( target ) !== <span class="hljs-string">'[object Function]'</span>) {
             target = {};
         }
         <span class="hljs-keyword">if</span> (i === length) {
             target = <span class="hljs-keyword">this</span>; i--;
         }
         <span class="hljs-keyword">for</span> (; i &lt; length; i++) {
-            <span class="hljs-keyword">if</span> ((options = <span class="hljs-built_in">arguments</span>[ i ]) != <span class="hljs-literal">null</span>) {
+            <span class="hljs-keyword">if</span> ((options = <span class="hljs-built_in">arguments</span>[ i ]) !== <span class="hljs-literal">null</span>) {
                 <span class="hljs-keyword">for</span> (name <span class="hljs-keyword">in</span> options) {
                     src = target[name];
                     copy = options[name];
@@ -147,7 +147,7 @@
                 }
             }
         } <span class="hljs-keyword">return</span> target;
-    }
+    };
 
     <span class="hljs-keyword">return</span> mavi;
 

@@ -40,14 +40,14 @@
         if (typeof target === "boolean") {
             deep = target; target = arguments[ i ] || {}; i++;
         }
-        if (typeof target !== "object" && !(Object.prototype.toString.call( target ) === '[object Function]')) {
+        if (typeof target !== "object" && Object.prototype.toString.call( target ) !== '[object Function]') {
             target = {};
         }
         if (i === length) {
             target = this; i--;
         }
         for (; i < length; i++) {
-            if ((options = arguments[ i ]) != null) {
+            if ((options = arguments[ i ]) !== null) {
                 for (name in options) {
                     src = target[name];
                     copy = options[name];
@@ -70,7 +70,7 @@
                 }
             }
         } return target;
-    }
+    };
 
     return mavi;
 
