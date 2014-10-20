@@ -1,3 +1,5 @@
+![Logo](http://s27.postimg.org/3k71bkydr/duck_hunt.png)
+
 # mavi [![Build Status](https://secure.travis-ci.org/mavidurak/mavi.png)](http://travis-ci.org/mavidurak/mavi)
 
 mavi JavaScript Library
