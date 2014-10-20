@@ -36,7 +36,7 @@ npm test
 
 - [x] Skeleton Construction Design
 - [x] Asynchronous module definition Support
-- [ ] And more development processes (best part)
+- [ ] **And more development processes (best part)**
 
 ## Contributing
 
