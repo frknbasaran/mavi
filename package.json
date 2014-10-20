@@ -11,7 +11,7 @@
         "core",
         "pure"
     ],
-    "author": "Eray Arslan <relfishere@gmail.com>",
+    "author": "mavidurak <mavidurak.io@gmail.com>",
     "scripts": {
         "build": "uglifyjs mavi.js --mangle --source-map mavi.min.js.map -o mavi.min.js",
         "test": "phantomjs test/vendor/runner.js test/index.html?noglobals=true",
