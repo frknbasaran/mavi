@@ -204,7 +204,33 @@
         <span class="hljs-keyword">if</span>(target.toString() === <span class="hljs-string">'[object Object]'</span>) {
             <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
         } <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
-    }
+    }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-9">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-9">&#182;</a>
+              </div>
+              <p>get synchronous url/file content with ajax
+ p.s. not tested. (i think it will work :D)</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    mavi.getContentWithSync = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(path)</span> </span>{
+        <span class="hljs-keyword">var</span> request = <span class="hljs-keyword">new</span> XMLHttpRequest();
+        request.open(<span class="hljs-string">'GET'</span>, path, <span class="hljs-literal">false</span>);
+        request.send(<span class="hljs-literal">null</span>);
+
+        <span class="hljs-keyword">if</span> (request.status === <span class="hljs-number">200</span>) {
+            <span class="hljs-keyword">return</span> request.responseText;
+        } <span class="hljs-keyword">else</span> {
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+        }
+    };
 
     <span class="hljs-keyword">return</span> mavi;
 

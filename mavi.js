@@ -24,13 +24,16 @@
 
 }(this, function(root, mavi) {
 
+    //
     // "dummy"
+    //
     var dummy = "dummy";
 
     mavi.getDummy = function() {
         return dummy;
     };
 
+    //
     // deep object cloning with pure javascript (jquery "extend" function based)
     //
     // full documantation : http://api.jquery.com/jquery.extend/
@@ -98,6 +101,22 @@
             return true;
         } return false;
     }
+
+    //
+    // get synchronous url/file content with ajax
+    //  p.s. not tested. (i think it will work :D)
+    //
+    mavi.getContentWithSync = function(path) {
+        var request = new XMLHttpRequest();
+        request.open('GET', path, false);
+        request.send(null);
+
+        if (request.status === 200) {
+            return request.responseText;
+        } else {
+            return false;
+        }
+    };
 
     return mavi;
 
