@@ -12,7 +12,7 @@ mavi is a JavaScript library that provides a whole mess of useful functional pro
 --- | --- | --- | --- | --- |
  ✔ | ✔ | ✔ | ✔ | ✔ |
  
- ## Future Tasks
+## Future Tasks
 
 - [ ] Skeleton Construction Design
 - [ ] Apply Temporary System
