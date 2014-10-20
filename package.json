@@ -1,0 +1,32 @@
+{
+    "name": "mavi",
+    "description": "mavi JavaScript Library",
+    "url": "http://mavidurakio.wordpress.com/",
+    "keywords": [
+        "mavi",
+        "durak",
+        "javascript",
+        "library",
+        "utils",
+        "core",
+        "pure"
+    ],
+    "author": "Eray Arslan <relfishere@gmail.com>",
+    "scripts": {
+        "build": "uglifyjs mavi.js --mangle --source-map mavi.min.js.map -o mavi.min.js",
+        "test": "phantomjs test/vendor/runner.js test/index.html?noglobals=true",
+        "doc": "docco mavi.js"
+    },
+    "main": "mavi.js",
+    "version": "0.0.1",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/mavidurak/mavi"
+    },
+    "devDependencies": {
+        "uglifyjs" : "*",
+        "phantomjs": "1.9.7-8",
+        "docco": "0.6.3"
+    }
+}
