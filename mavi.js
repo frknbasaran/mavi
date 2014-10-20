@@ -40,7 +40,7 @@
         if (typeof target === "boolean") {
             deep = target; target = arguments[ i ] || {}; i++;
         }
-        if (typeof target !== "object" && Object.prototype.toString.call( target ) !== '[object Function]') {
+        if (typeof target !== "object" && !this.isFunction(target)) {
             target = {};
         }
         if (i === length) {
@@ -54,14 +54,14 @@
                     if (target === copy) {
                         continue;
                     }
-                    if (deep && copy && ( (copy.toString()==="[object Object]") ||
-                        (copyIsArray = (Object.prototype.toString.call( copy ) === '[object Array]')) )) {
+                    if (deep && copy && ( (this.isPlainObject(copy)) ||
+                        (copyIsArray = (this.isArray(copy))) )) {
                         if (copyIsArray) {
                             copyIsArray = false;
-                            clone = src && (Object.prototype.toString.call( src ) === '[object Array]') ? src : [];
+                            clone = src && (this.isArray(src)) ? src : [];
 
                         } else {
-                            clone = src && (src.toString()==="[object Object]") ? src : {};
+                            clone = src && (this.isPlainObject(src)) ? src : {};
                         }
                         target[name] = this.dolly( deep, clone, copy );
                     } else if (copy !== undefined) {
@@ -71,6 +71,33 @@
             }
         } return target;
     };
+
+    //
+    // function control
+    //
+    mavi.isFunction = function(target) {
+        if(Object.prototype.toString.call(target) === '[object Function]') {
+            return true;
+        } return false;
+    };
+
+    //
+    // array control
+    //
+    mavi.isArray = function(target) {
+        if(Object.prototype.toString.call(target) === '[object Array]') {
+            return true;
+        } return false;
+    };
+
+    //
+    // plain object control
+    //
+    mavi.isPlainObject = function(target) {
+        if(target.toString() === '[object Object]') {
+            return true;
+        } return false;
+    }
 
     return mavi;
 

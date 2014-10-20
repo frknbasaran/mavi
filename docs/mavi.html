@@ -117,7 +117,7 @@
         <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> target === <span class="hljs-string">"boolean"</span>) {
             deep = target; target = <span class="hljs-built_in">arguments</span>[ i ] || {}; i++;
         }
-        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> target !== <span class="hljs-string">"object"</span> &amp;&amp; <span class="hljs-built_in">Object</span>.prototype.toString.call( target ) !== <span class="hljs-string">'[object Function]'</span>) {
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> target !== <span class="hljs-string">"object"</span> &amp;&amp; !<span class="hljs-keyword">this</span>.isFunction(target)) {
             target = {};
         }
         <span class="hljs-keyword">if</span> (i === length) {
@@ -131,14 +131,14 @@
                     <span class="hljs-keyword">if</span> (target === copy) {
                         <span class="hljs-keyword">continue</span>;
                     }
-                    <span class="hljs-keyword">if</span> (deep &amp;&amp; copy &amp;&amp; ( (copy.toString()===<span class="hljs-string">"[object Object]"</span>) ||
-                        (copyIsArray = (<span class="hljs-built_in">Object</span>.prototype.toString.call( copy ) === <span class="hljs-string">'[object Array]'</span>)) )) {
+                    <span class="hljs-keyword">if</span> (deep &amp;&amp; copy &amp;&amp; ( (<span class="hljs-keyword">this</span>.isPlainObject(copy)) ||
+                        (copyIsArray = (<span class="hljs-keyword">this</span>.isArray(copy))) )) {
                         <span class="hljs-keyword">if</span> (copyIsArray) {
                             copyIsArray = <span class="hljs-literal">false</span>;
-                            clone = src &amp;&amp; (<span class="hljs-built_in">Object</span>.prototype.toString.call( src ) === <span class="hljs-string">'[object Array]'</span>) ? src : [];
+                            clone = src &amp;&amp; (<span class="hljs-keyword">this</span>.isArray(src)) ? src : [];
 
                         } <span class="hljs-keyword">else</span> {
-                            clone = src &amp;&amp; (src.toString()===<span class="hljs-string">"[object Object]"</span>) ? src : {};
+                            clone = src &amp;&amp; (<span class="hljs-keyword">this</span>.isPlainObject(src)) ? src : {};
                         }
                         target[name] = <span class="hljs-keyword">this</span>.dolly( deep, clone, copy );
                     } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (copy !== <span class="hljs-literal">undefined</span>) {
@@ -147,7 +147,64 @@
                 }
             }
         } <span class="hljs-keyword">return</span> target;
-    };
+    };</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-6">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-6">&#182;</a>
+              </div>
+              <p>function control</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    mavi.isFunction = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(target)</span> </span>{
+        <span class="hljs-keyword">if</span>(<span class="hljs-built_in">Object</span>.prototype.toString.call(target) === <span class="hljs-string">'[object Function]'</span>) {
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+        } <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+    };</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-7">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-7">&#182;</a>
+              </div>
+              <p>array control</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    mavi.isArray = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(target)</span> </span>{
+        <span class="hljs-keyword">if</span>(<span class="hljs-built_in">Object</span>.prototype.toString.call(target) === <span class="hljs-string">'[object Array]'</span>) {
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+        } <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+    };</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-8">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-8">&#182;</a>
+              </div>
+              <p>plain object control</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    mavi.isPlainObject = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(target)</span> </span>{
+        <span class="hljs-keyword">if</span>(target.toString() === <span class="hljs-string">'[object Object]'</span>) {
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+        } <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+    }
 
     <span class="hljs-keyword">return</span> mavi;
 
