@@ -5,7 +5,7 @@
 
 (function(root, factory) {
 
-    // AMD Support
+    // Asynchronous module definition Support
     if(typeof define === 'function' && define.amd) {
 
         define(['exports'], function(exports) {
