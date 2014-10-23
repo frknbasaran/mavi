@@ -127,8 +127,7 @@
         var randomNumber = -1;
         while(randomNumber < down || randomNumber > up) {
             randomNumber = Math.floor((Math.random() * up) + 1);
-        }
-        return randomNumber;
+        } return randomNumber;
     }
     
     /*
@@ -139,10 +138,8 @@
     mavi.generateRandomString = function(letterCount) {
         var generatedRandomString = "";
         for (var i = 0; i < letterCount; i++) {
-            
             generatedRandomString += String.fromCharCode(this.generateRandomNumber(48,90));
-        }
-        return generatedRandomString;
+        } return generatedRandomString;
     }
 
     return mavi;
