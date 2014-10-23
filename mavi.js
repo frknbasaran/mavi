@@ -118,15 +118,29 @@
         }
     };
     
-    //
-    // generate random words with defined letter count
-    // will return string object
-    //
+    /*
+    * generate random positive numbers specifed range
+    * @down number, lower limit
+    * @up   number, upper limit
+    */
+    mavi.generateRandomNumber = function(down, up) {
+        var randomNumber = -1;
+        while(randomNumber < down || randomNumber > up) {
+            randomNumber = Math.floor((Math.random() * up) + 1);
+        }
+        return randomNumber;
+    }
+    
+    /*
+    * generate random words with specified letter count
+    * will return string object
+    * @letterCount number, letter limit for string
+    */
     mavi.generateRandomString = function(letterCount) {
-        var charsArray = ['a','A','b','B','c','C','d','D','e','E','f','F','g','G','h','H','i','I','j','J','k','K','l','L','m','M','n','N','o','O','p','P','r','R','s','S','t','T','u','U','v','V','y','Y','z','Z','0','1','2','3','4','5','6','7','8','9'];
         var generatedRandomString = "";
         for (var i = 0; i < letterCount; i++) {
-            generatedRandomString += charsArray[Math.floor((Math.random()*(charsArray.length-1))+1)];
+            
+            generatedRandomString += String.fromCharCode(this.generateRandomNumber(48,90));
         }
         return generatedRandomString;
     }
