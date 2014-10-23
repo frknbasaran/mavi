@@ -35,6 +35,4 @@
         strictEqual(firstString.length, secondString.length);
     });
 
-
-
 })();
