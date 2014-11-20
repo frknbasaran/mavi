@@ -216,7 +216,7 @@
                 <a class="pilcrow" href="#section-9">&#182;</a>
               </div>
               <p>get synchronous url/file content with ajax
- p.s. not tested. (i think it will work :D)</p>
+p.s. not tested. (i think it will work :D)</p>
 
             </div>
             
@@ -230,26 +230,46 @@
         } <span class="hljs-keyword">else</span> {
             <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
         }
-    };
-    
-    <span class="hljs-comment">/*
-    * generate random positive numbers specifed range
-    * @down number, lower limit
-    * @up   number, upper limit
-    */</span>
-    mavi.generateRandomNumber = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(down, up)</span> </span>{
+    };</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-10">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-10">&#182;</a>
+              </div>
+              <p>generate random positive numbers specifed range
+@down number, lower limit
+@up   number, upper limit</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    mavi.generateRandomNumber = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(down, up)</span> </span>{
         <span class="hljs-keyword">var</span> randomNumber = -<span class="hljs-number">1</span>;
         <span class="hljs-keyword">while</span>(randomNumber &lt; down || randomNumber &gt; up) {
             randomNumber = <span class="hljs-built_in">Math</span>.floor((<span class="hljs-built_in">Math</span>.random() * up) + <span class="hljs-number">1</span>);
         } <span class="hljs-keyword">return</span> randomNumber;
-    }
-    
-    <span class="hljs-comment">/*
-    * generate random words with specified letter count
-    * will return string object
-    * @letterCount number, letter limit for string
-    */</span>
-    mavi.generateRandomString = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(letterCount)</span> </span>{
+    }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-11">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-11">&#182;</a>
+              </div>
+              <p>generate random words with specified letter count
+will return string object
+@letterCount number, letter limit for string</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    mavi.generateRandomString = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(letterCount)</span> </span>{
         <span class="hljs-keyword">var</span> generatedRandomString = <span class="hljs-string">""</span>;
         <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; letterCount; i++) {
             generatedRandomString += <span class="hljs-built_in">String</span>.fromCharCode(<span class="hljs-keyword">this</span>.generateRandomNumber(<span class="hljs-number">48</span>,<span class="hljs-number">90</span>));

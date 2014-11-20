@@ -104,7 +104,7 @@
 
     //
     // get synchronous url/file content with ajax
-    //  p.s. not tested. (i think it will work :D)
+    // p.s. not tested. (i think it will work :D)
     //
     mavi.getContentWithSync = function(path) {
         var request = new XMLHttpRequest();
@@ -118,11 +118,11 @@
         }
     };
     
-    /*
-    * generate random positive numbers specifed range
-    * @down number, lower limit
-    * @up   number, upper limit
-    */
+    //
+    // generate random positive numbers specifed range
+    // @down number, lower limit
+    // @up   number, upper limit
+    //
     mavi.generateRandomNumber = function(down, up) {
         var randomNumber = -1;
         while(randomNumber < down || randomNumber > up) {
@@ -130,11 +130,11 @@
         } return randomNumber;
     }
     
-    /*
-    * generate random words with specified letter count
-    * will return string object
-    * @letterCount number, letter limit for string
-    */
+    //
+    // generate random words with specified letter count
+    // will return string object
+    // @letterCount number, letter limit for string
+    //
     mavi.generateRandomString = function(letterCount) {
         var generatedRandomString = "";
         for (var i = 0; i < letterCount; i++) {
